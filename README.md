@@ -6,4 +6,5 @@ I made some basic validation on the input. If bad values are submitted, then it 
 
 The library used for renering the circular countdown has an obsolete dependency, so I resolved that and uploaded the node modules (which is why they were not ignored)
 
-Project can be started using either node (npm start) or expo (expo start)
+Project can be started using either node (npm start) or expo (expo start). Then connect to the
+project using the expo go app, using either the barcode, or a simulated phone on your computer

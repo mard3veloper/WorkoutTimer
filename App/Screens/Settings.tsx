@@ -3,6 +3,7 @@ import React, { useContext } from "react";
 
 import SettingsContext from "./SettingsContext";
 import colors from "../config/colors";
+import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 
 const Settings = () => {
   //Pulling in all the parent variables
@@ -16,7 +17,7 @@ const Settings = () => {
   };
 
   return (
-    <View style={styles.Container}>
+    <KeyboardAwareScrollView contentContainerStyle={styles.Container}>
       <View style={styles.Row}>
         {/* Dynamically update the reps to show default values and entered values */}
         <Text style={styles.TextLabel}>Reps: {settingsInfo.reps}</Text>
@@ -80,7 +81,7 @@ const Settings = () => {
       >
         <Text style={styles.textButton}>Start</Text>
       </Pressable>
-    </View>
+    </KeyboardAwareScrollView>
   );
 };
 

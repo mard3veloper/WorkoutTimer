@@ -105,35 +105,28 @@ const Timer = () => {
 
   return (
     <View style={styles.container}>
-      <Pressable
-        style={styles.buttonBack}
-        onPress={() => {
-          settingsInfo.setShowSettings(true);
-        }}
-      >
-        <Text style={styles.textButtonBack}>Back</Text>
-      </Pressable>
-
       {/* Creating inner and outer timed circles to track overall and task progress */}
-      <ProgressCircle
-        percent={(currentTimeRef.current / totalTimeRef.current) * 100}
-        radius={180}
-        borderWidth={30}
-        color={colors.tertiary}
-        shadowColor={colors.dark}
-        bgColor={colors.light}
-      >
+      <View style={styles.circles}>
         <ProgressCircle
-          percent={100 - (secondsLeft / timeVal) * 100}
-          radius={150}
-          borderWidth={50}
-          color={workingStateRef.current ? colors.primary : colors.secondary}
+          percent={(currentTimeRef.current / totalTimeRef.current) * 100}
+          radius={180}
+          borderWidth={30}
+          color={colors.tertiary}
           shadowColor={colors.dark}
           bgColor={colors.light}
         >
-          <Text style={styles.InnerText}>{Math.ceil(secondsLeft)}</Text>
+          <ProgressCircle
+            percent={100 - (secondsLeft / timeVal) * 100}
+            radius={150}
+            borderWidth={50}
+            color={workingStateRef.current ? colors.primary : colors.secondary}
+            shadowColor={colors.dark}
+            bgColor={colors.light}
+          >
+            <Text style={styles.InnerText}>{Math.ceil(secondsLeft)}</Text>
+          </ProgressCircle>
         </ProgressCircle>
-      </ProgressCircle>
+      </View>
 
       {/* Playing and pausing, and updating state based on current state */}
       <Pressable
@@ -147,15 +140,28 @@ const Timer = () => {
           {isPausedRef.current ? "Play" : "Pause"}
         </Text>
       </Pressable>
+
+      {/* Ability to go back */}
+      <Pressable
+        style={styles.buttonBack}
+        onPress={() => {
+          settingsInfo.setShowSettings(true);
+        }}
+      >
+        <Text style={styles.textButtonBack}>Back</Text>
+      </Pressable>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {},
+  container: { flex: 1, alignItems: "center", alignContent: "center" },
   InnerText: {
     fontSize: 80,
     color: colors.dark,
+  },
+  circles: {
+    top: 20,
   },
   buttonStart: {
     alignItems: "center",
@@ -163,10 +169,14 @@ const styles = StyleSheet.create({
     padding: 10,
     borderRadius: 50,
     elevation: 3,
-    marginLeft: 80,
-    marginRight: 80,
+    width: 150,
+    // marginLeft: 80,
+    // marginRight: 80,
     backgroundColor: colors.dark,
     marginTop: 80,
+    bottom: 10,
+    right: 10,
+    position: "absolute",
   },
   buttonBack: {
     alignItems: "center",
@@ -174,17 +184,17 @@ const styles = StyleSheet.create({
     width: 150,
     padding: 10,
     borderRadius: 50,
-    elevation: 3,
+    bottom: 10,
+    left: 10,
     backgroundColor: colors.primary,
-    marginTop: 80,
-    marginBottom: 100,
+    position: "absolute",
   },
   textButton: {
     fontSize: 40,
     color: colors.light,
   },
   textButtonBack: {
-    fontSize: 30,
+    fontSize: 40,
     color: colors.light,
   },
 });
