@@ -161,7 +161,7 @@ const styles = StyleSheet.create({
     color: colors.dark,
   },
   circles: {
-    top: 20,
+    top: 80,
   },
   buttonStart: {
     alignItems: "center",
