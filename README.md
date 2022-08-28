@@ -4,7 +4,7 @@ A dead simple workout timer, with the ability to change reps, sets, time at each
 
 I made some basic validation on the input. If bad values are submitted, then it will just use the last valid values used, (or the defaults if none are provided). A colors file has also been included to make changing the color scheme for the app easy.
 
-The library used for renering the circular countdown has an obsolete dependency, so I resolved that and uploaded the node modules (which is why they were not ignored)
+The library used for renering the circular countdown has an obsolete dependency, so I resolved that and uploaded the node modules as I had to edit them (which is why they were not ignored)
 
 Project can be started using either node (npm start) or expo (expo start). Then connect to the
-project using the expo go app, using either the barcode, or a simulated phone on your computer
+project using the expo go app, using either the barcode, or a simulated phone on your computer. Alternatively it is published under the follocing link: https://expo.dev/@mard3v/WorkoutTimer?serviceType=classic&distribution=expo-go
